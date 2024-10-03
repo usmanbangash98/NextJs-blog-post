@@ -1,7 +1,11 @@
+"use client";
 import { createPost } from "@/actions/actions";
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Form() {
+  const notify = () => toast("Post have been posted");
   return (
     <form
       action={createPost}
@@ -20,9 +24,12 @@ export default function Form() {
         rows={6}
         required
       />
-      <button className="h-10 bg-blue-500 px-5 rounded text-white">
+      <button
+        className="h-10 bg-blue-500 px-5 rounded text-white"
+        onClick={notify}>
         Submit
       </button>
+      <ToastContainer />
     </form>
   );
 }
